@@ -20,3 +20,6 @@ MOSTRAR: CIUDAD, DEPARTAMENTO, PAIS, CANTIDAD_SUCURSAL
 	        ON sucursales_clientes_distribuidora.`id_ciudades`=ciudades.`id_ciudades`
          GROUP BY ciudades.`id_ciudades`
  
+
+
+INTEGRANTES: JHOANA JAJOY - FAUSTO URBANO

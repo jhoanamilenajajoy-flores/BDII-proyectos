@@ -1,0 +1,22 @@
+MOSTRAR, ID_CLIENTE, NOMBRE_CLIENTE, CANTIDAD_SUCURSAL
+
+SELECT `clientes_distribuidora`.`id_clientes_distribuidora` AS ID_CLIENTE,
+        clientes_distribuidora.`nombre_representante` AS NOMBRE_CLIENTE,
+           COUNT( `sucursales_clientes_distribuidora`.`id_sucursales_clientes_distribuidora`) AS CANTIDAD_SUCURSAL
+           FROM `clientes_distribuidora`
+           INNER JOIN `sucursales_clientes_distribuidora` ON clientes_distribuidora.`id_clientes_distribuidora`=sucursales_clientes_distribuidora.`id_clientes_distribuidora`
+           GROUP BY clientes_distribuidora.`id_clientes_distribuidora`
+-----------------------------------------------------------------
+MOSTRAR: CIUDAD, DEPARTAMENTO, PAIS, CANTIDAD_SUCURSAL
+
+ SELECT ciudades.`detalle_ciudades` AS CIUDADES,departamentos.`detalle_departamentos` AS DEPARTAMENTOS,paises.`detalle_paises` AS PAISES,
+  COUNT(`sucursales_clientes_distribuidora`.`id_sucursales_clientes_distribuidora`) AS CANTIDAD_SUCURSALES
+ FROM ciudades
+ 	INNER JOIN departamentos
+	        ON ciudades.`id_departamentos`=departamentos.`id_departamentos`
+        INNER JOIN paises 
+                ON paises.`id_paises`=departamentos.`id_paises`
+	INNER JOIN sucursales_clientes_distribuidora 
+	        ON sucursales_clientes_distribuidora.`id_ciudades`=ciudades.`id_ciudades`
+         GROUP BY ciudades.`id_ciudades`
+ 
